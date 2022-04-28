@@ -4,17 +4,9 @@
 
 _Put or write the user story here. Add any clarifying notes you might have._
 
-> As a user
-> 
->So that I can keep track of my tasks
->
->I want a program that I can add todo tasks to and see a list of them.
-
-> As a user
-> 
-> So that I can focus on tasks to complete
-> 
-> I want to mark tasks as complete and have them disappear from the list.
+As a user
+So that I can keep track of my music listening
+I want to add tracks I've listened to and see a list of them.
 
 ## 2. Design the Class Interface
 
@@ -23,28 +15,19 @@ _Include the initializer and public methods with all parameters and return value
 ```ruby
 # EXAMPLE
 
-class TodoList
+class MusicList
   def initialize
-    @todo_list = [] # we create an empty array to hold our tasks
+   #initialize empty array
+  end 
+
+  def add(track)
+  # track is a string, returns nothing, throws exception if track is not valid
   end
 
-  def add(task) # task is a string
-    # Throws an exception if task is invalid
-    # No return value
+  def showTracks
+  # return array
   end
-
-  def complete(task_id) # task_id is an integer (index of @todo_list)
-    # Throws an exception if task_id is invalid
-    # Returns false if no tasks have been added
-    # Returns false if task_id does not exist
-    # Returns true if task succesfully deleted
-  end
-
-  def show_tasks # tasks no input
-    # returns [] if no tasks have been added
-    # Otherwise, returns an array of tasks
-  end
-end
+end 
 ```
 
 ## 3. Create Examples as Tests
@@ -55,26 +38,23 @@ _Make a list of examples of how the class will behave in different situations._
 # EXAMPLE
 
 # 1
-todo_list = TodoList.new
-todo_list.add("Walk the dog")
-todo_list.show # => ['Walk the dog']
-todo_list.complete(0)
-todo_list.show_tasks # => []
+list = MusicList.new
+list.add("Happy")
+list.showTracks => ["Happy"]
 
-# 2
-todo_list = TodoList.new
-todo_list.add("Walk the dog")
-todo_list.add("Feed the cat")
-todo_list.show_tasks # => ['Walk the dog', 'Feed the cat']
-todo_list.complete(1)
-todo_list.show_tasks # => ['Walk the dog']
-todo_list.complete(0)
-todo_list.show_tasks() # => []
+#2
+list = MusicList.new
+list.add(nil) => throws error invalid track #or anything other than a string
+list.showTracks => []
 
-# 3
-todo_list = TodoList.new
-todo_list.add(nil) # => throw error
-todo_list.show_tasks() # => []
+#3
+list = MusicList.new
+list.add("Happy")
+list.add("Something")
+list.add("Merry Merry")
+list.add("Hey Jude")
+list.showTracks => ["Happy", "Something", "Merry Merry", "Hey Jude"]
+
 
 ```
 
