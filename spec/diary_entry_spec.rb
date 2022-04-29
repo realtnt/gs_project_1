@@ -27,6 +27,14 @@ RSpec.describe DiaryEntry do
       result = diary.count_words()
       expect(result).to eq 2000
     end
+    it "should return 1" do
+      result = diary.calc_reading_time(200)
+      expect(result).to eq 1
+    end
+    it "should return new contents" do
+      result = diary.read_chunk(200, 1)
+      expect(result).to eq "new contents"
+    end
   end
 
   context "when pass an empty content string" do
@@ -43,6 +51,14 @@ RSpec.describe DiaryEntry do
       result = diary.count_words
       expect(result).to eq 0
     end
+    it "should return 1" do
+      result = diary.calc_reading_time(200)
+      expect(result).to eq 0
+    end
+    it "should raise an error??" do #??????????????
+      result = diary.read_chunk(200, 1)
+      expect(result).to eq "new contents"
+    end
   end
 
   context "when passing nil for title and contents" do
@@ -53,7 +69,7 @@ RSpec.describe DiaryEntry do
     end
     it "should raise an error" do
       result = diary.get_contents
-      expect(result).to eql("no content")
+      expect(result).to eql("new contents")
     end
     it "should return 2" do
       result = diary.count_words
@@ -63,6 +79,9 @@ RSpec.describe DiaryEntry do
       result = diary.calc_reading_time(200)
       expect(result).to eq 1
     end
-    
+    it "should return new contents" do
+      result = diary.read_chunk(200, 1)
+      expect(result).to eq "new contents"
+    end
   end
 end

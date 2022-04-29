@@ -24,6 +24,11 @@ class DiaryEntry
                                   # of words the user can read per minute
                                   # `minutes` is an integer representing the
                                   # number of minutes the user has to read
+    
+    # calculate number of words = wpm * minutes
+    # last_word_read += words
+    # 
+    return @contents
     # Returns a string with a chunk of the contents that the user could read
     # in the given number of minutes.
     # If called again, `reading_chunk` should return the next chunk, skipping
