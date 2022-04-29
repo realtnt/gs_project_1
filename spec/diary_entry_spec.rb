@@ -47,11 +47,11 @@ RSpec.describe DiaryEntry do
 
   context "when passing nil for title and contents" do
     diary = DiaryEntry.new(nil, nil)
-    it "should return new title" do
+    it "should raise an error" do
       result = diary.get_title
       expect(result).to eql("new title")
     end
-    it "should return no content" do
+    it "should raise an error" do
       result = diary.get_contents
       expect(result).to eql("no content")
     end
@@ -59,5 +59,10 @@ RSpec.describe DiaryEntry do
       result = diary.count_words
       expect(result).to eq 2
     end
+    it "should return 1" do
+      result = diary.calc_reading_time(200)
+      expect(result).to eq 1
+    end
+    
   end
 end

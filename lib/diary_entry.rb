@@ -1,8 +1,7 @@
 class DiaryEntry
-  def initialize(title, contents) # title, contents are strings
-    @title = title || "new title"
-    @contents = contents || "no content"
-    # ...
+  def initialize(title, contents)
+    @title = title.is_a?(String) ? title : "new title"
+    @contents = contents.is_a?(String) ? contents : "new contents"
   end
 
   def get_title
@@ -11,20 +10,17 @@ class DiaryEntry
 
   def get_contents
     @contents
-    # Returns the contents as a string
   end
 
   def count_words
     @contents.split.length
   end
 
-  def reading_time(wpm) # wpm is an integer representing the number of words the
-                        # user can read per minute
-    # Returns an integer representing an estimate of the reading time in minutes
-    # for the contents at the given wpm.
+  def calc_reading_time(wpm)
+    (count_words / wpm.to_f).ceil
   end
 
-  def reading_chunk(wpm, minutes) # `wpm` is an integer representing the number
+  def read_chunk(wpm, minutes) # `wpm` is an integer representing the number
                                   # of words the user can read per minute
                                   # `minutes` is an integer representing the
                                   # number of minutes the user has to read
