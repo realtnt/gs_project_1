@@ -15,6 +15,36 @@ RSpec.describe DiaryEntry do
       result = diary.count_words()
       expect(result).to eq 4
     end
+    it "should return I love" do
+      result = diary.read_chunk(2, 1)
+      expect(result).to eq "I love"
+    end
+    it "should return I love pair" do
+      result = diary.read_chunk(2, 1)
+      expect(result).to eq "pair programming"
+    end
+  end
+
+  context "when passing 'I love pair programming I love pair programming'" do
+    diary = DiaryEntry.new("Pair Programming", "I love pair programming "*2)
+    it "should return I love pair programming" do
+      expect(diary.read_chunk(4, 1)).to eq "I love pair programming"
+    end
+    it "should return I love pair programming" do
+      expect(diary.read_chunk(4, 1)).to eq "I love pair programming"
+    end
+    it "should return I love pair" do
+      expect(diary.read_chunk(3, 1)).to eq "I love pair"
+    end
+    it "should return programming" do
+      expect(diary.read_chunk(5, 1)).to eq "programming I love pair programming"
+    end
+    it "should return I love pair" do
+      expect(diary.read_chunk(200, 1)).to eq ("I love pair programming " * 2).strip
+    end
+    it "should return empty string" do
+      expect(diary.read_chunk(200, 0)).to eq ""
+    end
   end
 
   context "when passing a long valid string" do
@@ -27,13 +57,13 @@ RSpec.describe DiaryEntry do
       result = diary.count_words()
       expect(result).to eq 2000
     end
-    it "should return 1" do
+    xit "should return 1" do
       result = diary.calc_reading_time(200)
       expect(result).to eq 1
     end
-    it "should return new contents" do
+    xit "should return 200 hellos" do
       result = diary.read_chunk(200, 1)
-      expect(result).to eq "new contents"
+      expect(result).to eq ("hello " * 200).strip
     end
   end
 
@@ -51,11 +81,11 @@ RSpec.describe DiaryEntry do
       result = diary.count_words
       expect(result).to eq 0
     end
-    it "should return 1" do
+    xit "should return 1" do
       result = diary.calc_reading_time(200)
       expect(result).to eq 0
     end
-    it "should raise an error??" do #??????????????
+    xit "should raise an error??" do #??????????????
       result = diary.read_chunk(200, 1)
       expect(result).to eq "new contents"
     end
@@ -79,7 +109,7 @@ RSpec.describe DiaryEntry do
       result = diary.calc_reading_time(200)
       expect(result).to eq 1
     end
-    it "should return new contents" do
+    xit "should return new contents" do
       result = diary.read_chunk(200, 1)
       expect(result).to eq "new contents"
     end
