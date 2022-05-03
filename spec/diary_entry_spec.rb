@@ -57,11 +57,11 @@ RSpec.describe DiaryEntry do
       result = diary.count_words()
       expect(result).to eq 2000
     end
-    xit "should return 1" do
+    it "should return 1" do
       result = diary.calc_reading_time(200)
-      expect(result).to eq 1
+      expect(result).to eq 10
     end
-    xit "should return 200 hellos" do
+    it "should return 200 hellos" do
       result = diary.read_chunk(200, 1)
       expect(result).to eq ("hello " * 200).strip
     end
@@ -80,14 +80,6 @@ RSpec.describe DiaryEntry do
     it "should return 0" do
       result = diary.count_words
       expect(result).to eq 0
-    end
-    xit "should return 1" do
-      result = diary.calc_reading_time(200)
-      expect(result).to eq 0
-    end
-    xit "should raise an error??" do #??????????????
-      result = diary.read_chunk(200, 1)
-      expect(result).to eq "new contents"
     end
   end
 
@@ -108,10 +100,6 @@ RSpec.describe DiaryEntry do
     it "should return 1" do
       result = diary.calc_reading_time(200)
       expect(result).to eq 1
-    end
-    xit "should return new contents" do
-      result = diary.read_chunk(200, 1)
-      expect(result).to eq "new contents"
     end
   end
 end
