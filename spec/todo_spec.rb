@@ -3,7 +3,7 @@ require "todo"
 RSpec.describe Todo do
   context "when adding one todo item" do
     todo_one = Todo.new("todo one")
-    it "return todo 1" do
+    it "return todo one" do
       expect(todo_one.task).to eql("todo one")
     end
     it "return false" do

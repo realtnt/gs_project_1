@@ -6,20 +6,20 @@ class Todo
     @done = false
   end
 
+  # Returns the task as a string
   def task
     @text
-    # Returns the task as a string
   end
 
+  # Marks the todo as done
+  # Returns nothing
   def mark_done!
     @done = true
-    # Marks the todo as done
-    # Returns nothing
   end
 
+  # Returns true if the task is done
+  # Otherwise, false
   def done?
     @done
-    # Returns true if the task is done
-    # Otherwise, false
   end
 end
