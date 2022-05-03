@@ -1,9 +1,12 @@
 # File: lib/todo_list.rb
 class TodoList
   def initialize
+    @list = []
   end
 
-  def add(todo) # todo is an instance of Todo
+  def add(todo)
+
+    # todo is an instance of Todo
     # Returns nothing
   end
 
