@@ -42,3 +42,13 @@ class Diary
       .reverse[0]
   end
 end
+
+
+
+# @diary_entries.select{|entry| entry.estimate_reading_time(wpm) <= time}.sort_by(&:count_words)[0]
+# p @diary_entries
+
+
+# def count_words
+#   @text.split.length
+# end
